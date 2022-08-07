@@ -1,4 +1,4 @@
-           //Instructions//
+//Instructions//
 
 //GIVEN I am taking a code quiz
 //WHEN I click the start button
@@ -16,30 +16,42 @@ var timerEl = document.querySelector(".countdown");
 var startButton = document.querySelector(".startButton");
 
 
+                           //Game intro and username input//
+function intro(){
+    alert("Test your Formula 1 knowledge\! You have 100 seconds to race through this 10 question quiz about Formula 1 facts\.  Wrong answers will deduct remaining time, and cause a wreck\!  Got what it takes?\?  See how your track time ranks among the high scores\.  Please log your username\!");
+}
+
+function userInfo(){
+    var username= prompt("Enter initials for username")
+    localStorage.setItem("user", username);
+}
+
+function startGame(){
+    alert("Press \"Start!\" for lights out and begin the game!")
+}
+
 function countdown() {
-    var timeLeft = 120;
-  
-    // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
+    var timeLeft = 100;
+
     var timeInterval = setInterval(function () {
-      // As long as the `timeLeft` is greater than 1
-      if (timeLeft > 1) {
-        // Set the `textContent` of `timerEl` to show the remaining seconds
-        timerEl.textContent = timeLeft + ' seconds remaining';
-        // Decrement `timeLeft` by 1
-        timeLeft--;
-      } else if (timeLeft === 1) {
-        // When `timeLeft` is equal to 1, rename to 'second' instead of 'seconds'
-        timerEl.textContent = timeLeft + ' second remaining';
-        timeLeft--;
-      } else {
-        // Once `timeLeft` gets to 0, set `timerEl` to an empty string
-        timerEl.textContent = '';
-        // Use `clearInterval()` to stop the timer
-        clearInterval(timeInterval);
-        // Call the `displayMessage()` function
-        
-      }
+
+        if (timeLeft > 1) {
+            timerEl.textContent = timeLeft + ' seconds remaining';
+            timeLeft--;
+
+        } else if (timeLeft === 1) {
+            timerEl.textContent = timeLeft + ' second remaining';
+            timeLeft--;
+
+        } else {
+            timerEl.textContent = '';
+            clearInterval(timeInterval);
+        }
+
     }, 1000)
 }
 
+addEventListener("load", intro)
+addEventListener("load", userInfo)
+addEventListener("load", startGame)
 startButton.addEventListener("click", countdown)

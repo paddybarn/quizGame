@@ -1,8 +1,21 @@
+header{
+    margin: 80px;
+}
 .countdown{
     display: flex;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
     font-size: 20px;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
+main{
+    display: flex;
+    justify-content: center;
+    margin: 80px;
+}
+
+section{
+    display: flex;
+    justify-content: center;
+}
