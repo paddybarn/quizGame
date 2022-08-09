@@ -22,3 +22,7 @@ section{
     display: flex;
     justify-content: center;
 }
+
+#reload{
+    display: none;
+}
