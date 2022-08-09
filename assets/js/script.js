@@ -23,16 +23,17 @@ const c_text = document.getElementById("c_text")
 const d_text = document.getElementById("d_text")
 const submitBtn = document.getElementById("submit");
 const results = document.getElementById("results")
+const resultList=document.getElementById("resultList")
 const reload = document.getElementById("reload")
 
 //globally declared variables
 var usernameArray = []
 var username = ""
-var timeLeft = 100
+var timeLeft = 50
 let currentQuiz = 0
 let highscore = 0
 
-//array of each question to be stored as objects
+//array of each question stored as objects in an array in this variable
 const quizData = [
     {
         question: "Which compound tire yields the most grip?",
@@ -92,10 +93,10 @@ function userInfo() {
 }
 
 //start the game
-function gameInfo() {
+function startGame() {
     alert("Press \"Start!\" for lights out and begin the game!")
     countdown()
-    timeLeft= 100
+    timeLeft= 50
     loadQuiz()
 }
 
@@ -185,29 +186,34 @@ submitBtn.addEventListener('click', () => {
             for (i = 0; i < localStorage.length; i++) {
                 var userName = localStorage.key(i)
                 var highScore = localStorage.getItem(userName)
-                result += userName + "   " + highScore
+                result += "(" + userName + "   " + highScore + ")"
+                
             }
             results.innerText= result
+
             //brings reload button into visible display
             submitBtn.style.display = "none"
             reload.style.display = "block"
+            results.style.display = "block"
             //resets quiz to question 1
             currentQuiz= 0
 
         }
     }
 })
+
 //reloads quiz after game is completed
 reload.addEventListener("click", () => {
     intro()
     userInfo()
-    gameInfo()
+    startGame()
     //brings submit button back to visible on the page
     submitBtn.style.display = "block"
     reload.style.display = "none"
+    results.style.display = "none"
 
 })
 //beginning prompts
 addEventListener("load", intro)
 addEventListener("load", userInfo)
-addEventListener("load", gameInfo)
+addEventListener("load", startGame)

@@ -9,9 +9,6 @@ header{
     justify-content: center;
 }
 
-.answerList{
-    display: none;
-}
 main{
     display: flex;
     justify-content: center;
@@ -23,6 +20,41 @@ section{
     justify-content: center;
 }
 
+ul{
+    list-style-type: none;
+}
+
+#buttons{
+    display: flex;
+    justify-content: center;
+}
+
+button{
+    height: 100px;
+    width: 400px;
+    font-size: 50px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+button:hover {
+    background-color: gold;
+}
+
+
 #reload{
     display: none;
+}
+
+#results{
+    display: none;
+    justify-content: center;
+    margin-top: 40px;
+    margin-left: 30%;
+    margin-right: 30%;
+    border-style: solid;
+    background-color: lightgreen;
+    border-radius: 5px;
+    padding-top: 10px;
+    height: 100px
 }
